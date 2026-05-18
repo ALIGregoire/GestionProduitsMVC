@@ -31,3 +31,15 @@ C:\Users\DELL\Desktop\GestionProduitsMVC\GestionProduitsMVC\obj\Debug\net8.0\ref
 C:\Users\DELL\Desktop\GestionProduitsMVC\GestionProduitsMVC\obj\Debug\net8.0\GestionProduitsMVC.pdb
 C:\Users\DELL\Desktop\GestionProduitsMVC\GestionProduitsMVC\obj\Debug\net8.0\GestionProduitsMVC.genruntimeconfig.cache
 C:\Users\DELL\Desktop\GestionProduitsMVC\GestionProduitsMVC\obj\Debug\net8.0\ref\GestionProduitsMVC.dll
+D:\COURS\ASPNET.NET-SOAP\GestionProduitsMVC\obj\Debug\net8.0\rpswa.dswa.cache.json
+D:\COURS\ASPNET.NET-SOAP\GestionProduitsMVC\obj\Debug\net8.0\GestionProduitsMVC.GeneratedMSBuildEditorConfig.editorconfig
+D:\COURS\ASPNET.NET-SOAP\GestionProduitsMVC\obj\Debug\net8.0\GestionProduitsMVC.AssemblyInfoInputs.cache
+D:\COURS\ASPNET.NET-SOAP\GestionProduitsMVC\obj\Debug\net8.0\GestionProduitsMVC.AssemblyInfo.cs
+D:\COURS\ASPNET.NET-SOAP\GestionProduitsMVC\obj\Debug\net8.0\GestionProduitsMVC.csproj.CoreCompileInputs.cache
+D:\COURS\ASPNET.NET-SOAP\GestionProduitsMVC\obj\Debug\net8.0\GestionProduitsMVC.MvcApplicationPartsAssemblyInfo.cache
+D:\COURS\ASPNET.NET-SOAP\GestionProduitsMVC\obj\Debug\net8.0\GestionProduitsMVC.RazorAssemblyInfo.cache
+D:\COURS\ASPNET.NET-SOAP\GestionProduitsMVC\obj\Debug\net8.0\GestionProduitsMVC.RazorAssemblyInfo.cs
+D:\COURS\ASPNET.NET-SOAP\GestionProduitsMVC\obj\Debug\net8.0\GestionProduitsMVC.sourcelink.json
+D:\COURS\ASPNET.NET-SOAP\GestionProduitsMVC\obj\Debug\net8.0\GestionProduitsMVC.dll
+D:\COURS\ASPNET.NET-SOAP\GestionProduitsMVC\obj\Debug\net8.0\refint\GestionProduitsMVC.dll
+D:\COURS\ASPNET.NET-SOAP\GestionProduitsMVC\obj\Debug\net8.0\GestionProduitsMVC.pdb
