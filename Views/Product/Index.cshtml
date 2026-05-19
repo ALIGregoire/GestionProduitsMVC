@@ -1,4 +1,6 @@
-﻿<h1>Liste des produits</h1>
+﻿@model IEnumerable<GestionProduitsMVC.Models.Product>
+
+<h1>Liste des produits</h1>
 
 <a href="/Product/Create" class="btn btn-primary">
     Ajouter un produit
@@ -15,44 +17,27 @@
     </thead>
 
     <tbody>
-        <tr>
-            <td>Ordinateur</td>
-            <td>250000 FCFA</td>
-            <td>5</td>
+        @foreach (var product in Model)
+        {
+            <tr>
+                <td>@product.Name</td>
+                <td>@product.Price.ToString("#,##0") FCFA</td>
+                <td>@product.Stock</td>
 
-            <td>
-                <a href="/Product/Details" class="btn btn-info">
-                    Détail
-                </a>
+                <td>
+                    <a href="/Product/Details/@product.Id" class="btn btn-info">
+                        Détail
+                    </a>
 
-                <a href="#" class="btn btn-warning">
-                    Modifier
-                </a>
+                    <a href="#" class="btn btn-warning">
+                        Modifier
+                    </a>
 
-                <a href="#" class="btn btn-danger">
-                    Supprimer
-                </a>
-            </td>
-        </tr>
-
-        <tr>
-            <td>Téléphone</td>
-            <td>150000 FCFA</td>
-            <td>10</td>
-
-            <td>
-                <a href="/Product/Details" class="btn btn-info">
-                    Détail
-                </a>
-
-                <a href="#" class="btn btn-warning">
-                    Modifier
-                </a>
-
-                <a href="#" class="btn btn-danger">
-                    Supprimer
-                </a>
-            </td>
-        </tr>
+                    <a href="#" class="btn btn-danger">
+                        Supprimer
+                    </a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

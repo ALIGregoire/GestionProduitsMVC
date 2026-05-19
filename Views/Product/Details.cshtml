@@ -1,22 +1,24 @@
-﻿<h1>Détail du produit</h1>
+﻿@model GestionProduitsMVC.Models.Product
+
+<h1>Détail du produit</h1>
 
 <div class="card p-3">
 
-    <h3>Ordinateur HP</h3>
+    <h3>@Model.Name</h3>
 
     <p>
         <strong>Prix :</strong>
-        250000 FCFA
+        @Model.Price.ToString("#,##0") FCFA
     </p>
 
     <p>
         <strong>Stock :</strong>
-        5
+        @Model.Stock
     </p>
 
     <p>
         <strong>Description :</strong>
-        Ordinateur performant pour le développement.
+        Ceci est la description du produit @Model.Name.
     </p>
 
 </div>
