@@ -51,5 +51,7 @@ L'infrastructure est prête pour le développement des contrôleurs :
 - Le chargement lié (Eager Loading) est facilité par les propriétés `virtual`.
 - La validation des données est assurée par les `DataAnnotations` dans les modèles (ex: `[Required]`, `[EmailAddress]`).
 
+
+
 ---
 *Projet développé dans le cadre du cours Framework ASP.NET.*
