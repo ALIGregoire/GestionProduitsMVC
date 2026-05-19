@@ -27,62 +27,64 @@ namespace GestionProduitsMVC.Data
         {
             base.OnModelCreating(modelBuilder);
 
-            // =================================================================
-            // 1. SÉCURITÉ & OPÉRATIONS FINANCIÈRES : Clés Primaires Composites
-            // =================================================================
-            // Empêche les doublons de produits dans une même commande/facture
-            
-            modelBuilder.Entity<CommandeDetail>()
-                .HasKey(cd => new { cd.CommandeId, cd.ProduitId });
+            // 1. Clés composites automatiques pour les tables de détails
+            modelBuilder.Entity<CommandeDetail>().HasKey(cd => new { cd.CommandeId, cd.ProduitId });
+            modelBuilder.Entity<LivraisonDetail>().HasKey(ld => new { ld.LivraisonId, ld.ProduitId });
+            modelBuilder.Entity<FactureDetail>().HasKey(fd => new { fd.FactureId, fd.ProduitId });
 
-            modelBuilder.Entity<LivraisonDetail>()
-                .HasKey(ld => new { ld.LivraisonId, ld.ProduitId });
+            // 2. FILTRE GLOBAL DE SÉCURITÉ : Bloque l'accès aux données marquées comme supprimées logiquement (Soft Delete)
+            modelBuilder.Entity<Categorie>().HasQueryFilter(e => !e.IsDeleted);
+            modelBuilder.Entity<Fournisseur>().HasQueryFilter(e => !e.IsDeleted);
+            modelBuilder.Entity<Client>().HasQueryFilter(e => !e.IsDeleted);
+            modelBuilder.Entity<Produit>().HasQueryFilter(e => !e.IsDeleted);
+            modelBuilder.Entity<Commande>().HasQueryFilter(e => !e.IsDeleted);
+            modelBuilder.Entity<Facture>().HasQueryFilter(e => !e.IsDeleted);
 
-            modelBuilder.Entity<FactureDetail>()
-                .HasKey(fd => new { fd.FactureId, fd.ProduitId });
-
-            // =================================================================
-            // 2. CONFIGURATION DES RELATIONS & PROTECTION DES DONNÉES (Restric)
-            // =================================================================
-
-            // Un Produit ne peut pas être supprimé s'il est lié à une Catégorie active
-            modelBuilder.Entity<Produit>()
-                .HasOne(p => p.Categorie)
-                .WithMany(c => c.Products)
-                .HasForeignKey(p => p.CategorieId)
-                .OnDelete(DeleteBehavior.Restrict);
-
-            modelBuilder.Entity<Produit>()
-                .HasOne(p => p.Fournisseur)
-                .WithMany(f => f.Products)
-                .HasForeignKey(p => p.FournisseurId)
-                .OnDelete(DeleteBehavior.Restrict);
-
-            // Un Produit ne peut pas être supprimé s'il a un historique d'achats/ventes
-            modelBuilder.Entity<CommandeDetail>()
-                .HasOne(cd => cd.Produit)
-                .WithMany()
-                .HasForeignKey(cd => cd.ProduitId)
-                .OnDelete(DeleteBehavior.Restrict);
-
-            modelBuilder.Entity<LivraisonDetail>()
-                .HasOne(ld => ld.Produit)
-                .WithMany()
-                .HasForeignKey(ld => ld.ProduitId)
-                .OnDelete(DeleteBehavior.Restrict);
-
-            modelBuilder.Entity<FactureDetail>()
-                .HasOne(fd => fd.Produit)
-                .WithMany()
-                .HasForeignKey(fd => fd.ProduitId)
-                .OnDelete(DeleteBehavior.Restrict);
-
-            // Interdiction absolue de supprimer un client si des commandes ou factures existent
-            modelBuilder.Entity<Commande>()
-                .HasOne(c => c.Client)
-                .WithMany() // ou .WithMany(cl => cl.Commandes) si la liste existe dans Client
-                .HasForeignKey(c => c.ClientId)
-                .OnDelete(DeleteBehavior.Restrict);
+            // 3. Protection stricte contre les suppressions en cascade accidentelles
+            foreach (var relationship in modelBuilder.Model.GetEntityTypes().SelectMany(e => e.GetForeignKeys()))
+            {
+                relationship.DeleteBehavior = DeleteBehavior.Restrict;
+            }
         }
+
+        // 4. Interception des sauvegardes pour gérer automatiquement les dates d'audit et le Soft Delete
+        public override int SaveChanges()
+        {
+            ProcessAuditAndSoftDelete();
+            return base.SaveChanges();
+        }
+
+        public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
+        {
+            ProcessAuditAndSoftDelete();
+            return base.SaveChangesAsync(cancellationToken);
+        }
+
+        private void ProcessAuditAndSoftDelete()
+        {
+            foreach (var entry in ChangeTracker.Entries())
+            {
+                if (entry.Entity is BaseEntity entity)
+                {
+                    switch (entry.State)
+                    {
+                        case EntityState.Added:
+                            entity.DateCreation = DateTime.UtcNow;
+                            entity.IsDeleted = false;
+                            break;
+                        case EntityState.Modified:
+                            entity.DateModification = DateTime.UtcNow;
+                            break;
+                        case EntityState.Deleted:
+                            // Intercepte la vraie suppression physique pour la transformer en archivage logique
+                            entry.State = EntityState.Modified;
+                            entity.IsDeleted = true;
+                            entity.DateModification = DateTime.UtcNow;
+                            break;
+                    }
+                }
+            }
+        }
+
     }
 }
