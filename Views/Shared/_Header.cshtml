@@ -1,0 +1,56 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand" href="/">
+            <i class="fas fa-laptop-code me-2"></i>
+            <strong>Gestion Stock Informatique</strong>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto">
+                <!-- Menu Dashboard -->
+                <li class="nav-item">
+                    <a class="nav-link" href="/Home/Index">
+                        <i class="fas fa-home"></i> Accueil
+                    </a>
+                </li>
+
+                <!-- Menu Produits -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                        <i class="fas fa-box"></i> Produits
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="/Produit/Index"><i class="fas fa-list"></i> Liste des produits</a></li>
+                        <li><a class="dropdown-item" href="/Produit/Create"><i class="fas fa-plus"></i> Ajouter un produit</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="/Categorie/Index"><i class="fas fa-tags"></i> Gérer les catégories</a></li>
+                    </ul>
+                </li>
+
+               
+
+                <!-- Menu Fournisseurs -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                        <i class="fas fa-truck"></i> Fournisseurs
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="/Fournisseur/Index"><i class="fas fa-list"></i> Liste des fournisseurs</a></li>
+                        <li><a class="dropdown-item" href="/Fournisseur/Create"><i class="fas fa-plus"></i> Ajouter un fournisseur</a></li>
+                    </ul>
+                </li>
+
+                <!-- Menu Statistiques -->
+                <li class="nav-item">
+                    <a class="nav-link" href="/Statistiques/Index">
+                        <i class="fas fa-chart-line"></i> Tableau de bord
+                    </a>
+                </li>
+            </ul>
+
+            
+        </div>
+    </div>
+</nav>

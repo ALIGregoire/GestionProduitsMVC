@@ -1,0 +1,51 @@
+﻿@model GestionProduitsMVC.Models.Fournisseur
+
+@{
+    ViewData["Title"] = "Ajouter un fournisseur";
+}
+
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                <h4 class="mb-0"><i class="fas fa-plus-circle"></i> @ViewData["Title"]</h4>
+            </div>
+            <div class="card-body">
+                <form asp-action="Create">
+                    <div asp-validation-summary="ModelOnly" class="alert alert-danger"></div>
+
+                    <div class="mb-3">
+                        <label asp-for="NomEntreprise" class="form-label">Nom de l'entreprise *</label>
+                        <input asp-for="NomEntreprise" class="form-control" placeholder="Ex: Dell France, Logitech, etc." />
+                        <span asp-validation-for="NomEntreprise" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Email" class="form-label">Email *</label>
+                        <input asp-for="Email" class="form-control" type="email" placeholder="contact@entreprise.com" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+
+                    <div class="mb-3">
+                        <label asp-for="Telephone" class="form-label">Téléphone</label>
+                        <input asp-for="Telephone" class="form-control" placeholder="+225 05 XX XX XX XX" />
+                        <span asp-validation-for="Telephone" class="text-danger"></span>
+                    </div>
+
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                        <a asp-action="Index" class="btn btn-secondary">
+                            <i class="fas fa-times"></i> Annuler
+                        </a>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-save"></i> Enregistrer
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

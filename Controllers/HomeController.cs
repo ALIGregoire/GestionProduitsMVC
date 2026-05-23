@@ -1,32 +1,26 @@
-using System.Diagnostics;
-using GestionProduitsMVC.Models;
 using Microsoft.AspNetCore.Mvc;
+using GestionProduitsMVC.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace GestionProduitsMVC.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly ApplicationDbContext _context;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ApplicationDbContext context)
         {
-            _logger = logger;
+            _context = context;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
+            ViewBag.TotalProduits = await _context.Produits.Where(p => !p.IsDeleted).CountAsync();
+            ViewBag.TotalClients = await _context.Clients.Where(c => !c.IsDeleted).CountAsync();
+            ViewBag.TotalFournisseurs = await _context.Fournisseurs.Where(f => !f.IsDeleted).CountAsync();
+            ViewBag.StockCritique = await _context.Produits.Where(p => !p.IsDeleted && p.StockDisponible <= 5).CountAsync();
+
             return View();
-        }
-
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }
 }

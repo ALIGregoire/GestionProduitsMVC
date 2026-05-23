@@ -1,0 +1,12 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\Controllers",
+    "\\Data",
+    "\\Models",
+    "\\Views",
+    "\\Views\\Produit"
+  ],
+  "SelectedNode": "\\Data\\ApplicationDbContext.cs",
+  "PreviewInSolutionExplorer": false
+}

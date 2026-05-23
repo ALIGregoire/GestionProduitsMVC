@@ -1,0 +1,123 @@
+@{
+    ViewData["Title"] = "Tableau de bord - Statistiques";
+    var stockCritique = ViewBag.StockCritique as List<GestionProduitsMVC.Models.Produit>;
+    var topProduits = ViewBag.TopProduits as List<GestionProduitsMVC.Models.Produit>;
+}
+
+<div class="row mb-4">
+    <div class="col-12">
+        <h1><i class="fas fa-chart-line"></i> Tableau de bord</h1>
+        <p>Vue d'ensemble de votre activité</p>
+    </div>
+</div>
+
+<!-- Cartes de statistiques -->
+<div class="row mb-4">
+    <div class="col-md-3 mb-3">
+        <div class="card bg-primary text-white">
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <h6 class="card-title">Produits</h6>
+                        <h2 class="mb-0">@ViewBag.TotalProduits</h2>
+                    </div>
+                    <i class="fas fa-box fa-3x opacity-50"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-3 mb-3">
+        <div class="card bg-info text-white">
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div>
+                        <h6 class="card-title">Fournisseurs</h6>
+                        <h2 class="mb-0">@ViewBag.TotalFournisseurs</h2>
+                    </div>
+                    <i class="fas fa-truck fa-3x opacity-50"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+
+
+    <!-- Top produits -->
+    <div class="col-md-6 mb-4">
+        <div class="card h-100">
+            <div class="card-header bg-success text-white">
+                <h5 class="mb-0"><i class="fas fa-chart-bar"></i> Top 5 des stocks les plus élevés</h5>
+            </div>
+            <div class="card-body">
+                @if (topProduits.Any())
+                {
+                <div class="list-group">
+                    @foreach (var produit in topProduits)
+                        {
+                    <div class="list-group-item">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <strong>@produit.Libelle</strong>
+                                <br />
+                                <small>@produit.PrixUnitaire.ToString("C")</small>
+                            </div>
+                            <span class="badge bg-success rounded-pill">Stock: @produit.StockDisponible</span>
+                        </div>
+                    </div>
+                        }
+                </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Graphique des produits par catégorie -->
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header bg-dark text-white">
+                <h5 class="mb-0"><i class="fas fa-chart-pie"></i> Répartition des produits par catégorie</h5>
+            </div>
+            <div class="card-body">
+                <canvas id="produitsChart" height="100"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>$(document).ready(function() {
+            $.get('/Statistiques/GetChartData', function(data) {
+                var ctx = document.getElementById('produitsChart').getContext('2d');
+                new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: data.map(d => d.nom),
+                        datasets: [{
+                            label: 'Nombre de produits',
+                            data: data.map(d => d.total),
+                            backgroundColor: 'rgba(54, 162, 235, 0.5)',
+                            borderColor: 'rgba(54, 162, 235, 1)',
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                ticks: {
+                                    stepSize: 1
+                                }
+                            }
+                        }
+                    }
+                });
+            });
+        });</script>
+}

@@ -1,0 +1,75 @@
+﻿@model GestionProduitsMVC.Models.Produit
+
+@{
+    ViewData["Title"] = "Détails du produit";
+}
+
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header bg-info text-white">
+                <h4 class="mb-0"><i class="fas fa-info-circle"></i> @ViewData["Title"]</h4>
+            </div>
+            <div class="card-body">
+                <div class="row mb-3">
+                    <div class="col-md-4 fw-bold">ID :</div>
+                    <div class="col-md-8">@Model.Id</div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-4 fw-bold">Nom :</div>
+                    <div class="col-md-8">@Model.Libelle</div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-4 fw-bold">Catégorie :</div>
+                    <div class="col-md-8">@Model.Categorie?.Nom</div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-4 fw-bold">Fournisseur :</div>
+                    <div class="col-md-8">@Model.Fournisseur?.NomEntreprise</div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-4 fw-bold">Prix unitaire :</div>
+                    <div class="col-md-8 text-success fw-bold">@Model.PrixUnitaire.ToString("C")</div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-4 fw-bold">Stock disponible :</div>
+                    <div class="col-md-8">
+                        @if (Model.StockDisponible <= 5)
+                        {
+                        <span class="badge bg-danger">Stock critique : @Model.StockDisponible unités</span>
+                        }
+                        else if (Model.StockDisponible <= 20)
+                        {
+                        <span class="badge bg-warning">Stock faible : @Model.StockDisponible unités</span>
+                        }
+                        else
+                        {
+                        <span class="badge bg-success">@Model.StockDisponible unités</span>
+                        }
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-4 fw-bold">Date de création :</div>
+                    <div class="col-md-8">@Model.DateCreation.ToString("dd/MM/yyyy HH:mm")</div>
+                </div>
+                @if (Model.DateModification.HasValue)
+                {
+                <div class="row mb-3">
+                    <div class="col-md-4 fw-bold">Dernière modification :</div>
+                    <div class="col-md-8">@Model.DateModification?.ToString("dd/MM/yyyy HH:mm")</div>
+                </div>
+                }
+
+                <hr />
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-warning">
+                        <i class="fas fa-edit"></i> Modifier
+                    </a>
+                    <a asp-action="Index" class="btn btn-secondary">
+                        <i class="fas fa-arrow-left"></i> Retour à la liste
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

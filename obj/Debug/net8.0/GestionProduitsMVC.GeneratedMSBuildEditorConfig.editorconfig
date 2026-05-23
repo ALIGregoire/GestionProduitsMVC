@@ -12,53 +12,97 @@ build_property.EntryPointFilePath =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = GestionProduitsMVC
 build_property.RootNamespace = GestionProduitsMVC
-build_property.ProjectDir = D:\COURS\Framwork ASPNET.NET-SOAP\GestionProduitsMVC\
+build_property.ProjectDir = C:\Users\DELL\Desktop\ASP.NET\GestionProduitsMVC\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = D:\COURS\Framwork ASPNET.NET-SOAP\GestionProduitsMVC
+build_property.MSBuildProjectDirectory = C:\Users\DELL\Desktop\ASP.NET\GestionProduitsMVC
 build_property._RazorSourceGeneratorDebug = 
 build_property.EffectiveAnalysisLevelStyle = 8.0
 build_property.EnableCodeStyleSeverity = 
 
-[D:/COURS/Framwork ASPNET.NET-SOAP/GestionProduitsMVC/Views/Home/Index.cshtml]
+[C:/Users/DELL/Desktop/ASP.NET/GestionProduitsMVC/Views/Categorie/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmllXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DELL/Desktop/ASP.NET/GestionProduitsMVC/Views/Categorie/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmllXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DELL/Desktop/ASP.NET/GestionProduitsMVC/Views/Categorie/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0ZWdvcmllXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DELL/Desktop/ASP.NET/GestionProduitsMVC/Views/Fournisseur/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRm91cm5pc3NldXJcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DELL/Desktop/ASP.NET/GestionProduitsMVC/Views/Fournisseur/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRm91cm5pc3NldXJcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DELL/Desktop/ASP.NET/GestionProduitsMVC/Views/Fournisseur/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRm91cm5pc3NldXJcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DELL/Desktop/ASP.NET/GestionProduitsMVC/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/COURS/Framwork ASPNET.NET-SOAP/GestionProduitsMVC/Views/Home/Privacy.cshtml]
+[C:/Users/DELL/Desktop/ASP.NET/GestionProduitsMVC/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/COURS/Framwork ASPNET.NET-SOAP/GestionProduitsMVC/Views/Product/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxDcmVhdGUuY3NodG1s
+[C:/Users/DELL/Desktop/ASP.NET/GestionProduitsMVC/Views/Produit/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVpdFxDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/COURS/Framwork ASPNET.NET-SOAP/GestionProduitsMVC/Views/Product/Details.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxEZXRhaWxzLmNzaHRtbA==
+[C:/Users/DELL/Desktop/ASP.NET/GestionProduitsMVC/Views/Produit/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVpdFxEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/COURS/Framwork ASPNET.NET-SOAP/GestionProduitsMVC/Views/Product/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxJbmRleC5jc2h0bWw=
+[C:/Users/DELL/Desktop/ASP.NET/GestionProduitsMVC/Views/Produit/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVpdFxEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/COURS/Framwork ASPNET.NET-SOAP/GestionProduitsMVC/Views/Shared/Error.cshtml]
+[C:/Users/DELL/Desktop/ASP.NET/GestionProduitsMVC/Views/Produit/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVpdFxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DELL/Desktop/ASP.NET/GestionProduitsMVC/Views/Produit/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVpdFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DELL/Desktop/ASP.NET/GestionProduitsMVC/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/COURS/Framwork ASPNET.NET-SOAP/GestionProduitsMVC/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/DELL/Desktop/ASP.NET/GestionProduitsMVC/Views/Shared/_Footer.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Gb290ZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DELL/Desktop/ASP.NET/GestionProduitsMVC/Views/Shared/_Header.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9IZWFkZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DELL/Desktop/ASP.NET/GestionProduitsMVC/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/COURS/Framwork ASPNET.NET-SOAP/GestionProduitsMVC/Views/_ViewImports.cshtml]
+[C:/Users/DELL/Desktop/ASP.NET/GestionProduitsMVC/Views/Statistiques/index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RhdGlzdGlxdWVzXGluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/DELL/Desktop/ASP.NET/GestionProduitsMVC/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/COURS/Framwork ASPNET.NET-SOAP/GestionProduitsMVC/Views/_ViewStart.cshtml]
+[C:/Users/DELL/Desktop/ASP.NET/GestionProduitsMVC/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/COURS/Framwork ASPNET.NET-SOAP/GestionProduitsMVC/Views/Shared/_Layout.cshtml]
+[C:/Users/DELL/Desktop/ASP.NET/GestionProduitsMVC/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-v8exuxl89m

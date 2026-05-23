@@ -1,0 +1,110 @@
+﻿@model IEnumerable<GestionProduitsMVC.Models.Produit>
+
+    @{
+    ViewData["Title"] = "Liste des produits";
+    }
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1><i class="fas fa-box"></i> @ViewData["Title"]</h1>
+        <a asp-action="Create" class="btn btn-primary">
+            <i class="fas fa-plus"></i> Nouveau produit
+        </a>
+    </div>
+
+    @if (TempData["Success"] != null)
+{
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <i class="fas fa-check-circle"></i> @TempData["Success"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+}
+
+    <!-- Formulaire de filtres -->
+    <div class="card mb-4">
+        <div class="card-body">
+            <form method="get" class="row g-3">
+                <div class="col-md-4">
+                    <label class="form-label">Recherche</label>
+                    <input type="text" name="searchString" class="form-control"
+                           placeholder="Nom du produit..." value="@ViewBag.SearchString" />
+                </div>
+                <div class="col-md-4">
+                    <label class="form-label">Catégorie</label>
+                    <select name="categorieId" class="form-select" asp-items="ViewBag.Categories">
+                        <option value="">Toutes les catégories</option>
+                    </select>
+                </div>
+                <div class="col-md-4 d-flex align-items-end">
+                    <button type="submit" class="btn btn-primary me-2">
+                        <i class="fas fa-search"></i> Filtrer
+                    </button>
+                    <a asp-action="Index" class="btn btn-secondary">
+                        <i class="fas fa-undo"></i> Réinitialiser
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Tableau des produits -->
+    <div class="table-responsive">
+        <table class="table table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nom</th>
+                    <th>Catégorie</th>
+                    <th>Fournisseur</th>
+                    <th>Prix Unitaire</th>
+                    <th>Stock</th>
+                    <th>Statut</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.Libelle</td>
+                    <td>@item.Categorie?.Nom</td>
+                    <td>@item.Fournisseur?.NomEntreprise</td>
+                    <td>@item.PrixUnitaire.ToString("C")</td>
+                    <td>@item.StockDisponible</td>
+                    <td>
+                        @if (item.StockDisponible <= 5)
+                        {
+                        <span class="badge bg-danger">Stock critique</span>
+                        }
+                        else if (item.StockDisponible <= 20)
+                        {
+                        <span class="badge bg-warning">Stock faible</span>
+                        }
+                        else
+                        {
+                        <span class="badge bg-success">Stock normal</span>
+                        }
+                    </td>
+                    <td>
+                        <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info btn-sm" title="Détail">
+                            <i class="fas fa-eye"></i>
+                        </a>
+                        <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning btn-sm" title="Modifier">
+                            <i class="fas fa-edit"></i>
+                        </a>
+                        <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm" title="Supprimer">
+                            <i class="fas fa-trash"></i>
+                        </a>
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+
+    @if (!Model.Any())
+{
+    <div class="alert alert-info text-center">
+        <i class="fas fa-info-circle"></i> Aucun produit trouvé.
+    </div>
+}
